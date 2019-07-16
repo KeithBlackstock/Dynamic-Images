@@ -1,3 +1,9 @@
+<!-- Prototype dynamic meeting web page 
+Author: Keith Blackstock
+University: WPI
+
+License: Open Source usage allowed
+-->
 
 <!DOCTYPE html>
 <html>
@@ -38,7 +44,7 @@ function handler(e) {
         pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
 
-    console.log("hi Keith" + pageX, pageY);
+    console.log("hi Keith: " + pageX, pageY);
 
     if (((pageX > 622) && (pageX < 812)) && ((pageY > 450) && (pageY < 620)))  {
        console.log("target1");
