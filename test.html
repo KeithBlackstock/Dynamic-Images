@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+ 
+</head>
+ 
+<body>
+<script>
+function changeBGImage1(){
+     document.body.background = "test-html1.jpg";
+}
+
+function changeBGImage2(){
+	document.body.background = "drawing_board.J3.jpg";
+}
+function changeBGImage3(){
+	document.body.background = "drawing_board.J.jpg";
+}
+function changeBGImage4(){
+	document.body.background = "drawing_board.J2.jpg";
+}
+
+changeBGImage1();   // load start image
+
+// event handler function
+function handler(e) {
+    e = e || window.event;
+
+    var pageX = e.pageX;
+    var pageY = e.pageY;
+
+    // IE 8
+    if (pageX === undefined) {
+        pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    console.log("hi Keith" + pageX, pageY);
+
+    if (((pageX > 622) && (pageX < 812)) && ((pageY > 450) && (pageY < 620)))  {
+       console.log("target1");
+       changeBGImage2();   // loading second image
+    } else if (((pageX > 300) && (pageX < 500)) && ((pageY > 550) && (pageY < 650)))  {
+       console.log("target2");
+       changeBGImage3();   // loading second image
+    } else if (((pageX > 510) && (pageX < 600)) && ((pageY > 500) && (pageY < 570)))  {
+       console.log("target3");
+       changeBGImage4();   // loading second image
+    } else {
+        changeBGImage1();
+    }
+
+}
+
+// attach handler to the click event of the document
+// if (document.attachEvent) document.attachEvent('onclick', handler);
+if (document.attachEvent) document.attachEvent('onmousemove', handler);
+else document.addEventListener('mousemove', handler);
+// else document.addEventListener('click', handler);
+
+</script> 
+</body>
+</html>
