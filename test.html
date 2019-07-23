@@ -10,27 +10,38 @@ License: Open Source usage allowed
 <html>
 <head>
 <title>Page Title</title>
-
- 
+<meta charset="utf-8"/>
 </head>
  
 <body>
+<input id="audio1" type="button" value="Click here to enable audio" onclick="playSound()">
+
 <script>
-function changeBGImage1(){
-     document.body.background = "test-html1.jpg";
+
+
+var sound = new Audio();
+var soundfile = "./file_example_MP3_700KB.mp3";
+
+function playSound() {
+    
+    sound.src = soundfile;
+    console.log("SOUND:" + sound.currentTime);
+   
+	if (sound.currentTime == 0) {
+   	  var playPromise = sound.play()
+	}
 }
 
-function changeBGImage2(){
-	document.body.background = "drawing_board.J3.jpg";
-}
-function changeBGImage3(){
-	document.body.background = "drawing_board.J.jpg";
-}
-function changeBGImage4(){
-	document.body.background = "drawing_board.J2.jpg";
+function changeBGImage(imagefile, soundf){
+   if (document.body.background != "drawing_board.J3.jpg" ) {
+      document.body.background = imagefile;
+      soundfile = soundf;
+      document.getElementById("audio1").click();
+   }
 }
 
-changeBGImage1();   // load start image
+
+changeBGImage("test-html1.jpg","" );    // load start image
 
 // event handler function
 function handler(e) {
@@ -48,16 +59,23 @@ function handler(e) {
     console.log("hi Keith: " + pageX, pageY);
 
     if (((pageX > 622) && (pageX < 812)) && ((pageY > 450) && (pageY < 620)))  {
+    
        console.log("target1");
-       changeBGImage2();   // loading second image
+       changeBGImage("drawing_board.J.jpg","./file_example_MP3_700KB.mp3" ); 
+    
     } else if (((pageX > 300) && (pageX < 500)) && ((pageY > 550) && (pageY < 650)))  {
+    
        console.log("target2");
-       changeBGImage3();   // loading second image
+       changeBGImage("drawing_board.J.jpg","viola.mp3" );
+    
     } else if (((pageX > 510) && (pageX < 600)) && ((pageY > 500) && (pageY < 570)))  {
+    
        console.log("target3");
-       changeBGImage4();   // loading second image
+       changeBGImage("drawing_board.J2.jpg","" ); 
+    
     } else {
-        changeBGImage1();
+    
+       changeBGImage("test-html1.jpg","" ); 
     }
 
 }
@@ -69,5 +87,6 @@ else document.addEventListener('mousemove', handler);
 // else document.addEventListener('click', handler);
 
 </script> 
+
 </body>
 </html>
