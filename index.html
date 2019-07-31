@@ -1,4 +1,4 @@
-<!-- Prototype dynamic meeting web page 
+<!-- Scene 2 
 Author: Keith Blackstock
 University: WPI
 
@@ -14,9 +14,9 @@ License: Open Source usage allowed
 </head>
  
 <body>
-<input id="audio1" type="button" value="Click here to enable audio" onclick="playSound()"> <br>
-<a href="index.html"> links first page </a>
 
+<h1> First Page </h1>
+<a href="test.html"> links second page </a>
 <script>
 
 
@@ -29,22 +29,20 @@ function playSound() {
     console.log("SOUND:" + sound.currentTime);
    
 	if (sound.currentTime == 0) {
-   	  var playPromise = sound.play();
+   	  var playPromise = sound.play()
 	}
 }
 
 function changeBGImage(imagefile, soundf){
-   if (document.body.background != "drawing_board.J3.jpg" ) {
+   if (document.body.background != "beam_lift.J.jpg" ) {
       document.body.background = imagefile;
-      document.body.style.backgroundRepeat = "repeat-y";
-      document.body.style.background = "background-repeat: no-repeat;background-position: 0% 0%";
       soundfile = soundf;
       document.getElementById("audio1").click();
    }
 }
 
 
-changeBGImage("test-html1.jpg","" );    // load start image
+//changeBGImage("beam_lift.J.jpg","" );    // load start image
 
 // event handler function
 function handler(e) {
@@ -61,33 +59,25 @@ function handler(e) {
 
     console.log("hi Keith: " + pageX, pageY);
 
-    if (((pageX > 622) && (pageX < 812)) && ((pageY > 450) && (pageY < 620)))  {
+    if (((pageX > 330) && (pageX < 550)) && ((pageY > 200) && (pageY < 700)))  {
     
        console.log("target1");
-       changeBGImage("drawing_board.J3.jpg","./file_example_MP3_700KB.mp3" ); 
+       changeBGImage("highlight-kenza1.jpg","./file_example_MP3_700KB.mp3" ); 
     
-    } else if (((pageX > 300) && (pageX < 500)) && ((pageY > 550) && (pageY < 650)))  {
-    
-       console.log("target2");
-       changeBGImage("drawing_board.J.jpg","viola.mp3" );
-    
-    } else if (((pageX > 510) && (pageX < 600)) && ((pageY > 500) && (pageY < 570)))  {
+    } else if (((pageX > 640) && (pageX < 770)) && ((pageY > 220) && (pageY < 640)))  {
     
        console.log("target3");
-       changeBGImage("drawing_board.J2.jpg","" ); 
+       changeBGImage("highlight-julia1.jpg","" ); 
     
     } else {
     
-       changeBGImage("test-html1.jpg","" ); 
+       changeBGImage("beam_lift.J1.jpg","" ); 
     }
 
 }
 
-// attach handler to the click event of the document
-// if (document.attachEvent) document.attachEvent('onclick', handler);
 if (document.attachEvent) document.attachEvent('onmousemove', handler);
 else document.addEventListener('mousemove', handler);
-// else document.addEventListener('click', handler);
 
 </script> 
 
